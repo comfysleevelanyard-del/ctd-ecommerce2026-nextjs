@@ -7,10 +7,10 @@ const ProductCatalog = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const productsRes = await axios.get(
+      const productsRes = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/product/all`,
       );
-      setProducts(productsRes.data);
+      setProducts(await productsRes.json());
     };
     fetchProducts();
   }, []);
