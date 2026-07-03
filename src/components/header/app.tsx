@@ -10,40 +10,26 @@ const Header = async () => {
   const session = await auth0.getSession();
 
   return (
-    <ul className="flex align-items-center justify-between gap-4 p-4 border-b-1">
+    <ul className="flex align-items-center justify-between gap-4 p-4 border-b">
       <li>
         <Link className="text-gray-700" href="/">
           Home
         </Link>
       </li>
-      <li>
-        {session?.user ? (
-          <HoverCard>
-            <HoverCardTrigger>
-              <Link href="/">Profile</Link>
-            </HoverCardTrigger>
-            <HoverCardContent>
-              <ul className="flex flex-col gap-2 items-center">
-                <li>
-                  <p>Welcome, {session.user.name}!</p>
-                </li>
-                <li>
-                  <Link href={"/start"} className="hover:underline">
-                    Become a Retailer
-                  </Link>
-                </li>
-                <li>
-                  <Link href={"/dashboard"} className="hover:underline">
-                    Dashboard
-                  </Link>
-                </li>
-              </ul>
-            </HoverCardContent>
-          </HoverCard>
-        ) : (
+      {session?.user ? (
+        <>
+          <li>
+            <a href="/auth/logout">Logout</a>
+          </li>
+          <li>
+            <Link href={"/cart"}>Cart</Link>
+          </li>
+        </>
+      ) : (
+        <li>
           <a href="/auth/login">Sign In</a>
-        )}
-      </li>
+        </li>
+      )}
     </ul>
   );
 };
