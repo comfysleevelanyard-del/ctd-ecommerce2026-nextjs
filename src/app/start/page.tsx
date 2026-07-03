@@ -8,7 +8,7 @@ const StartTORetailer = async () => {
   const response = await axios.post(
     `${process.env.NEXT_PUBLIC_API_URL}/retailers/create`,
     {
-      name: "Retailer Name",
+      name: session?.user.name,
       userId: session?.user.sub,
     },
   );
