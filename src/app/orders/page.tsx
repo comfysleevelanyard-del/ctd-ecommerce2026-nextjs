@@ -41,7 +41,7 @@ const OrdersPage = async () => {
             </p>
             <p>Date: {new Date(order.timestamp).toLocaleDateString()}</p>
             <h3 className="font-bold text-xl mt-3">Items:</h3>
-            <ul className="flex flex-col gap-3 pl-5">
+            <ul className="grid grid-cols-3 gap-3 pl-5">
               {order.cart.map((item: any) => (
                 <li key={item.id} className="flex flex-col gap-2">
                   <p className="font-bold text-xl">{item.product.name}</p>
