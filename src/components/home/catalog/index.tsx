@@ -14,8 +14,6 @@ const ProductCatalog = () => {
     fetchProducts();
   }, []);
 
-  console.log(products);
-
   const router = useRouter();
 
   return (
