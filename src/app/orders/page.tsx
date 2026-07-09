@@ -31,7 +31,14 @@ const OrdersPage = async () => {
           >
             <p>Order ID: {order.id}</p>
             <p>Status: {order.status}</p>
-            <p>Total: ${(order.totalInCents / 100).toFixed(2)}</p>
+            <p>
+              Total: $
+              {order.cart
+                .reduce((total: number, el: any) => {
+                  return (total + el.product.priceInCents * el.quantity) / 100;
+                }, 0)
+                .toFixed(2)}
+            </p>
             <p>Date: {new Date(order.timestamp).toLocaleDateString()}</p>
             <h3 className="font-bold text-xl mt-3">Items:</h3>
             <ul className="flex flex-col gap-3 pl-5">
