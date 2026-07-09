@@ -6,7 +6,7 @@ const getRetailer = async () => {
 
   try {
     const data = await axios.post(
-      "http://localhost:8080/retailerdashboard/findRetailer",
+      "http://localhost:8080/retailer-dashboard/find-retailer",
       {
         userId: session,
       },

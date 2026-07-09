@@ -11,7 +11,7 @@ const TestApiCheckUser = async () => {
 
   try {
     const response = await axios.post(
-      "http://localhost:8080/retailerdashboard",
+      "http://localhost:8080/retailer-dashboard",
       {
         userId: session,
       },
