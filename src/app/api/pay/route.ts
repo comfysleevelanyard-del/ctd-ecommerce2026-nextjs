@@ -9,6 +9,7 @@ export async function POST(req: NextRequest) {
   const { cart } = await req.json();
   console.log(cart);
   const filteredCard = cart.filter((cartItem: any) => cartItem.showing);
+
   const session = await stripe.checkout.sessions.create({
     mode: "payment",
     payment_method_types: ["card", "pay_by_bank"],
@@ -25,6 +26,7 @@ export async function POST(req: NextRequest) {
     })),
     metadata: {
       userId: filteredCard[0].user.userId,
+      transfer: transferManifest
     },
     success_url: `${process.env.APP_BASE_URL}/success/{CHECKOUT_SESSION_ID}`,
     cancel_url: `${process.env.APP_BASE_URL}/cart`,
