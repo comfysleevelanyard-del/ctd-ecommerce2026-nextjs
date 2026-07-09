@@ -1,6 +1,5 @@
 import CheckoutButton from "@/components/checkout";
 import QuantityChange from "@/components/quantity-change";
-import { Button } from "@/components/ui/button";
 import { auth0 } from "@/lib/auth0";
 import axios from "axios";
 import type { Metadata } from "next";
@@ -19,7 +18,7 @@ const CartPage = async () => {
     },
   );
 
-  console.log(cart);
+  console.log(cart.filter((cartItem: any) => cartItem.showing));
 
   return (
     <main className="flex flex-col gap-5 items-center justify-center p-5">
@@ -49,7 +48,7 @@ const CartPage = async () => {
           );
         })}
       </ul>
-      <CheckoutButton cart={cart} />
+      <CheckoutButton cart={cart.filter((cartItem: any) => cartItem.showing)} />
     </main>
   );
 };

@@ -31,29 +31,22 @@ const OrdersPage = async () => {
           >
             <p>Order ID: {order.id}</p>
             <p>Status: {order.status}</p>
-            <p>
-              Total: $
-              {order.cart
-                .reduce((total: number, el: any) => {
-                  return (total + el.product.priceInCents * el.quantity) / 100;
-                }, 0)
-                .toFixed(2)}
-            </p>
+            <p></p>
             <p>Date: {new Date(order.timestamp).toLocaleDateString()}</p>
-            <h3 className="font-bold text-xl mt-3">Items:</h3>
+            <h3 className="font-bold text-xl mt-3">Item:</h3>
             <ul className="grid grid-cols-3 gap-3 pl-5">
-              {order.cart.map((item: any) => (
-                <li key={item.id} className="flex flex-col gap-2">
-                  <p className="font-bold text-xl">{item.product.name}</p>
-                  <p>Quantity: {item.quantity}</p>
+              {
+                <li key={order.cart.id} className="flex flex-col gap-2">
+                  <p className="font-bold text-xl">{order.cart.product.name}</p>
+                  <p>Quantity: {order.cart.quantity}</p>
                   <Image
                     src="/globe.svg"
-                    alt={item.product.name}
+                    alt={order.cart.product.name}
                     width={100}
                     height={100}
                   />
                 </li>
-              ))}
+              }
             </ul>
           </li>
         ))}
