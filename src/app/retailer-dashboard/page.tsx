@@ -19,7 +19,7 @@ const retailerDashboard = async () => {
   }
 
   return (
-    <div className="flex h-screen w-full overflow-hidden pt-16">
+    <div className="flex h-screen w-full overflow-hidden">
       <RetailerDashboardSidebar />
       <RetailerOrders />
       <SideBarRetailerData />

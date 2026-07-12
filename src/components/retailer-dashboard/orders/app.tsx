@@ -19,6 +19,7 @@ const RetailerOrders = () => {
       timestamp: Date.now(),
       username: "Katy Perry",
       address: "321 Madeup Ave",
+      items: [{ id: 123456, name: "Lanyard", quantity: 4 }],
     },
     {
       id: "09876",
@@ -27,6 +28,7 @@ const RetailerOrders = () => {
       status: "completed",
       timestamp: Date.now(),
       username: "Billy Bob",
+      items: [{ id: 12345, name: "Sleeve", quantity: 3 }],
     },
     {
       id: "09887",
@@ -35,102 +37,10 @@ const RetailerOrders = () => {
       status: "completed",
       timestamp: Date.now(),
       username: "Billy Bob",
-    },
-    {
-      id: "09888",
-      user_id: "7891",
-      completed: true,
-      status: "completed",
-      timestamp: Date.now(),
-      username: "Billy Bob",
-    },
-    {
-      id: "09889",
-      user_id: "7891",
-      completed: true,
-      status: "completed",
-      timestamp: Date.now(),
-      username: "Billy Bob",
-    },
-    {
-      id: "09880",
-      user_id: "7891",
-      completed: true,
-      status: "completed",
-      timestamp: Date.now(),
-      username: "Billy Bob",
-    },
-    {
-      id: "09881",
-      user_id: "7891",
-      completed: true,
-      status: "completed",
-      timestamp: Date.now(),
-      username: "Billy Bob",
-    },
-    {
-      id: "09882",
-      user_id: "7891",
-      completed: true,
-      status: "completed",
-      timestamp: Date.now(),
-      username: "Billy Bob",
-    },
-    {
-      id: "09883",
-      user_id: "7891",
-      completed: true,
-      status: "completed",
-      timestamp: Date.now(),
-      username: "Billy Bob",
-    },
-    {
-      id: "09884",
-      user_id: "7891",
-      completed: true,
-      status: "completed",
-      timestamp: Date.now(),
-      username: "Billy Bob",
-    },
-    {
-      id: "09885",
-      user_id: "7891",
-      completed: true,
-      status: "completed",
-      timestamp: Date.now(),
-      username: "Billy Bob",
-    },
-    {
-      id: "09886",
-      user_id: "7891",
-      completed: true,
-      status: "completed",
-      timestamp: Date.now(),
-      username: "Billy Bob",
-    },
-    {
-      id: "098877",
-      user_id: "7891",
-      completed: true,
-      status: "completed",
-      timestamp: Date.now(),
-      username: "Billy Bob",
-    },
-    {
-      id: "098888",
-      user_id: "7891",
-      completed: true,
-      status: "completed",
-      timestamp: Date.now(),
-      username: "Billy Bob",
-    },
-    {
-      id: "098899",
-      user_id: "7891",
-      completed: true,
-      status: "completed",
-      timestamp: Date.now(),
-      username: "Billy Bob",
+      items: [
+        { id: 1234, name: "Comfy", quantity: 2 },
+        { id: 12341, name: "ComfySleeveLanyard", quantity: 4 },
+      ],
     },
   ];
 
@@ -173,13 +83,23 @@ const RetailerOrders = () => {
 
               <div className="space-y-2 text-sm text-gray-700">
                 <p>
-                  <span className="font-semibold">Username:</span>{" "}
+                  <span className="font-semibold">Username/Email:</span>{" "}
                   {order.username}
                 </p>
 
                 <p>
                   <span className="font-semibold">Completed:</span>{" "}
                   {order.completed ? "Yes" : "No"}
+                </p>
+                <p>
+                  <span>
+                    Items:
+                    {order.items
+                      .map((item) => {
+                        return " " + item.name + " : " + item.quantity;
+                      })
+                      .join(", ")}
+                  </span>
                 </p>
               </div>
             </article>
