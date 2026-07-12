@@ -10,40 +10,9 @@ const RetailerOrders = () => {
   // @ts-ignore
   const { userData } = useUserData(sessionId);
 
-  const orders = [
-    {
-      id: "1234",
-      user_id: "4321",
-      completed: true,
-      status: "pending",
-      timestamp: Date.now(),
-      username: "Katy Perry",
-      address: "321 Madeup Ave",
-      items: [{ id: 123456, name: "Lanyard", quantity: 4 }],
-    },
-    {
-      id: "09876",
-      user_id: "7890",
-      completed: true,
-      status: "completed",
-      timestamp: Date.now(),
-      username: "Billy Bob",
-      items: [{ id: 12345, name: "Sleeve", quantity: 3 }],
-    },
-    {
-      id: "09887",
-      user_id: "7891",
-      completed: true,
-      status: "completed",
-      timestamp: Date.now(),
-      username: "Billy Bob",
-      items: [
-        { id: 1234, name: "Comfy", quantity: 2 },
-        { id: 12341, name: "ComfySleeveLanyard", quantity: 4 },
-      ],
-    },
-  ];
-
+  //@ts-ignore
+  const retailerId = userData;
+  console.log("retailerId: ", retailerId);
   if (session.isLoading) {
     return (
       <div className="flex h-screen items-center justify-center">

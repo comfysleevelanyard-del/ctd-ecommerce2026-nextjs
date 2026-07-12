@@ -14,7 +14,10 @@ const retailerDashboard = async () => {
       userId: session,
     },
   );
-  if (!response.data) {
+
+  console.log(response.data);
+
+  if (!response.data.retailer) {
     redirect("/start");
   }
 
