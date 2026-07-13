@@ -1,15 +1,17 @@
 "use client";
+
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const useUserData = (sessionId: { sessionId: String }) => {
+const useUserData = (sessionId?: string) => {
   const [userData, setUserData] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       if (!sessionId) {
-        return { userData: null };
+        return;
       }
+
       try {
         const response = await axios.post(
           `${process.env.NEXT_PUBLIC_API_URL}/retailer-dashboard/find-retailer`,
@@ -27,6 +29,7 @@ const useUserData = (sessionId: { sessionId: String }) => {
     fetchData();
   }, [sessionId]);
 
-  return { userData };
+  return userData;
 };
+
 export default useUserData;
