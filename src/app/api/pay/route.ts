@@ -27,6 +27,7 @@ export async function POST(req: NextRequest) {
     metadata: {
       userId: filteredCard[0].userId,
     },
+    allow_promotion_codes: true,
     success_url: `${process.env.APP_BASE_URL}/success/{CHECKOUT_SESSION_ID}`,
     cancel_url: `${process.env.APP_BASE_URL}/cart`,
   });
