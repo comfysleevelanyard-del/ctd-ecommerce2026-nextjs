@@ -1,7 +1,7 @@
 "use client";
 
 import { useUser } from "@auth0/nextjs-auth0";
-import useUserData from "@/app/hooks/useUserData";
+import useUserData from "@/app/(main)/hooks/useUserData";
 
 const RetailerOrders = () => {
   const session = useUser();
