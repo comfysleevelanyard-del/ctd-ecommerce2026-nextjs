@@ -68,19 +68,14 @@ const RetailerOrders = () => {
               <div className="space-y-2 text-sm text-gray-700">
                 <p>
                   <span className="font-semibold">Username/Email:</span>{" "}
-                  {order.username}
+                  {order.userName ? order.userName : order.email}
                 </p>
                 <p>
                   <span className="font-semibold">Completed:</span>{" "}
                   {order.completed ? "Yes" : "No"}
                 </p>
                 <p>
-                  <span>
-                    Items:{" "}
-                    {order.items
-                      ?.map((item) => `${item.name} : ${item.quantity}`)
-                      .join(", ")}
-                  </span>
+                  <span>Product Name: {order.id}</span>
                 </p>
               </div>
             </article>
