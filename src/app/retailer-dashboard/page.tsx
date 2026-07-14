@@ -32,7 +32,6 @@ const RetailerDashboard = async () => {
     <main className="flex h-screen w-full overflow-hidden">
       <RetailerDashboardSidebar />
       <RetailerOrders />
-      <SideBarRetailerData />
     </main>
   );
 };
