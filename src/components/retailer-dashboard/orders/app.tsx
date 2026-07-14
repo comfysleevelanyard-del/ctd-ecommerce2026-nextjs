@@ -29,7 +29,6 @@ const RetailerOrders = () => {
         );
         console.log(1);
         setRetailerOrders(response.data);
-        console.log(response.data);
       } catch (error) {
         console.error("Failed to fetch orders:", error);
       }
@@ -46,7 +45,7 @@ const RetailerOrders = () => {
       </div>
     );
   }
-  console.log("Account: ", account);
+  console.log(`Orders: ${JSON.stringify(retailerOrders)}`);
   return (
     <main className="min-h-0 min-w-0 flex-1 overflow-y-auto border-r border-gray-300 px-4 py-8">
       <div className="mx-auto w-full max-w-4xl">
@@ -72,7 +71,7 @@ const RetailerOrders = () => {
               <div className="space-y-2 text-sm text-gray-700">
                 <p>
                   <span className="font-semibold">Username/Email:</span>{" "}
-                  {order.userName ? order.userName : order.email}
+                  {order.order.user.name ? order.order.user.name : order.order.user.email}
                 </p>
                 <p>
                   <span className="font-semibold">Completed:</span>{" "}
@@ -80,16 +79,17 @@ const RetailerOrders = () => {
                 </p>
                 <p>
                   <span className="font-semibold">Product Name:</span>{" "}
-                  {order.productName}
+                  {order.order.cart.product.name}
                 </p>
                 <p>
                   <span className="font-semibold">Quantity:</span>{" "}
-                  {order.quantity}
+                  {order.order.cart.quantity}
                 </p>
 
                 <p>
+                  {console.log(order.finalpriceInCents)}
                   <span className="font-semibold">Price:</span>{" "}
-                  {"$" + (order.price / 100).toFixed(2)}
+                  {"$" + (parseFloat(order.order.finalPriceInCents) / 100).toFixed(2)}
                 </p>
               </div>
             </article>
