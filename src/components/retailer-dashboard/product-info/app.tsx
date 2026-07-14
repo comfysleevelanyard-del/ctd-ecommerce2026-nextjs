@@ -220,6 +220,16 @@ export default function ProductProfile({
       <Badge variant="secondary">Edited</Badge>
     ) : null;
 
+  const deleteProduct = async () => {
+    console.log("deleting");
+    await axios.post(
+      `${process.env.NEXT_PUBLIC_API_URL}/product/delete-product`,
+      {
+        productId: product.id,
+      },
+    );
+  };
+
   const FieldCard = ({
     field,
     title,
@@ -294,7 +304,9 @@ export default function ProductProfile({
                 </div>
               </div>
 
-              <Button variant="destructive">Delete</Button>
+              <Button onClick={() => deleteProduct()} variant="destructive">
+                Delete
+              </Button>
             </div>
           </CardHeader>
 
