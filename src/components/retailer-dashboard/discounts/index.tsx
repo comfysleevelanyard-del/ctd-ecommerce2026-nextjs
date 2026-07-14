@@ -25,7 +25,6 @@ interface Discount {
 }
 
 const ShowAllDiscounts = ({ discounts }: { discounts: Discount[] }) => {
-  console.log(discounts)
   if (!discounts.length) {
     return (
       <div className="flex min-h-[400px] items-center justify-center">
