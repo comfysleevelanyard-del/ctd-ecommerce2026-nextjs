@@ -17,6 +17,7 @@ const ProductCreate = () => {
 
   const userId = user?.sub;
 
+  // @ts-ignore
   const retailerId = useUserData(userId).id;
 
   const [name, setName] = useState("");
