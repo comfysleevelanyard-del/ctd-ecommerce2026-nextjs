@@ -17,8 +17,7 @@ const ProductCreate = () => {
 
   const userId = user?.sub;
 
-  const retailerId = useUserData(userId);
-  console.log(retailerId);
+  const retailerId = useUserData(userId).id;
 
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -70,8 +69,8 @@ const ProductCreate = () => {
       description: description.trim(),
       priceInCents: parsedPrice * 100,
       stock: parsedStock,
-      isAvailable,
-      isVisible,
+      available: isAvailable,
+      visible: isVisible,
       ownerId: retailerId,
     };
 
@@ -87,13 +86,13 @@ const ProductCreate = () => {
           description: description.trim(),
           priceInCents: parsedPrice * 100,
           stock: parsedStock,
-          isAvailable,
-          isVisible,
+          isShowing: isVisible,
+          isAvailable: isAvailable,
           ownerId: retailerId,
         },
       );
       console.log("new prod: ", response.data);
-      resetForm();
+      //resetForm();
     } catch (error) {
       console.error("Could not create the product:", error);
     } finally {
