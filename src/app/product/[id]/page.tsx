@@ -29,6 +29,7 @@ interface Product {
   location: {
     address?: string;
   } | null;
+  discounted: boolean;
 }
 
 const ProductIdPage = async ({
@@ -83,6 +84,8 @@ const ProductIdPage = async ({
                   <Badge variant={isInStock ? "outline" : "destructive"}>
                     {isInStock ? "In stock" : "Out of stock"}
                   </Badge>
+
+                  {product.discounted && <Badge>Discounted</Badge>}
 
                   {product.showing && (
                     <Badge variant="secondary">
