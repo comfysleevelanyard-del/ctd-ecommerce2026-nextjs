@@ -47,7 +47,7 @@ const ProductIdPage = async ({
   const formattedPrice = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
-  }).format(product.productOgPriceInCents / 100);
+  }).format(product.priceInCents / 100);
 
   const isInStock = product.stock > 0;
   const canPurchase = isInStock;
@@ -90,7 +90,12 @@ const ProductIdPage = async ({
                     {product.stock > 0 ? "In stock" : "Out of stock"}
                   </Badge>
 
-                  {product.discounted && <Badge>Discounted</Badge>}
+                  {product.discounted && (
+                    <Badge>
+                      Discounted from{" "}
+                      {(product.ogPriceInCents / 100).toFixed(2)}
+                    </Badge>
+                  )}
 
                   {product.showing && (
                     <Badge variant="secondary">
