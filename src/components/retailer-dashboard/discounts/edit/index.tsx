@@ -147,7 +147,7 @@ const EditDiscount = ({
                       id: data.id,
                     },
                   );
-                  router.refresh();
+                  router.push("/retailer-dashboard/discounts");
                 }}
               >
                 Delete this Discount

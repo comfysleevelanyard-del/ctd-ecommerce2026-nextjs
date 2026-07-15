@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 const CreateDiscount = () => {
   return (
     <main>
-      <div className="w-[60vw] flex h-full items-center justify-center self-center justify-self-center">
+      <div className="lg:w-[60vw] md:w-[60vw] flex h-full items-center justify-center self-center justify-self-center">
         <RetailerDashboardForm />
       </div>
     </main>
