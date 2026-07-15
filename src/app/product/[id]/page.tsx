@@ -76,8 +76,10 @@ const ProductIdPage = async ({
             <Card>
               <CardHeader className="space-y-5">
                 <div className="flex flex-wrap gap-2">
-                  <Badge variant={isInStock ? "default" : "secondary"}>
-                    {isInStock ? "Available" : "Unavailable"}
+                  <Badge
+                    variant={product.available ? "default" : "destructive"}
+                  >
+                    {product.available ? "Available" : "Unavailable"}
                   </Badge>
 
                   <Badge
@@ -144,7 +146,7 @@ const ProductIdPage = async ({
                 </div>
 
                 <div className="space-y-3">
-                  <AddToCartButton productAvailable={isInStock} />
+                  <AddToCartButton productAvailable={product.available} />
                 </div>
               </CardContent>
             </Card>
