@@ -24,6 +24,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
+import { useRouter } from "next/navigation";
 
 interface Product {
   id: string;
@@ -53,6 +54,7 @@ interface ProductProfileProps {
 export default function ProductProfile({
   product: initialProduct,
 }: ProductProfileProps) {
+  const router = useRouter();
   const [product, setProduct] = useState(initialProduct);
   const [activeField, setActiveField] = useState<EditableField | null>(null);
   const [editValue, setEditValue] = useState<string | boolean>("");
@@ -228,6 +230,7 @@ export default function ProductProfile({
         productId: product.id,
       },
     );
+    router.push("/retailer-dashboard/view-products");
   };
 
   const FieldCard = ({
