@@ -22,8 +22,6 @@ const RetailerDashboard = async () => {
     },
   );
 
-  console.log(response.data);
-
   if (!response.data.retailer) {
     redirect("/start");
   }
