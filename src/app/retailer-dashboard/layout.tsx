@@ -3,11 +3,11 @@ import React from "react";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="grid grid-cols-5 gap-15">
-      <div className="col-span-1">
+    <div className="flex md:gap-15 lg:gap-15 w-screen">
+      <div>
         <RetailerDashboardSidebar />
       </div>
-      <div className="col-span-4">{children}</div>
+      <div className="w-full">{children}</div>
     </div>
   );
 };
