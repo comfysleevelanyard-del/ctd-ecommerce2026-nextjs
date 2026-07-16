@@ -13,6 +13,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { PackageSearch } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 type RetailerOrder = {
   id: string;
@@ -44,7 +45,7 @@ const RetailerOrders = () => {
   const userData = useUserData(sessionId);
 
   const retailerId = userData?.id;
-
+  const router = useRouter();
   useEffect(() => {
     const fetchOrders = async () => {
       if (!retailerId) {
@@ -107,6 +108,7 @@ const RetailerOrders = () => {
   }
 
   if (!retailerId) {
+    router.replace("/start");
     return (
       <main className="flex min-h-64 items-center justify-center">
         <p className="text-muted-foreground">No retailer account was found.</p>

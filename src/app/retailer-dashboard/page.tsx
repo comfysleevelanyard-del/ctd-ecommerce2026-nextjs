@@ -16,16 +16,17 @@ export const metadata: Metadata = {
 const RetailerDashboard = async () => {
   const session = await auth0.getSession();
 
-  const userR = await axios.post(
+  if (!session?.user) {
+    redirect("/auth/login");
+  }
+  const retailerR = await axios.post(
     `${process.env.NEXT_PUBLIC_API_URL}/retailer-dashboard/`,
     {
       userId: session?.user.sub,
     },
   );
 
-  const user = (await userR).data;
-
-  if (!user) {
+  if (!retailerR.data) {
     redirect("/start");
   }
 
