@@ -26,9 +26,11 @@ const RetailerDashboard = async () => {
     },
   );
 
-  if (!retailerR.data) {
+  if (!retailerR.data.retailer) {
+    console.log("reidtectin");
     redirect("/start");
   }
+  console.log(retailerR.data);
 
   return (
     <main className="flex h-screen w-full overflow-hidden">
